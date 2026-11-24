@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Reto de Adviento en Familia · Vibras Positivas HM</title>
+<meta name="description" content="27 días de oración en familia, del 29 de noviembre a Navidad, con la Novena de Aguinaldos. Gratis, en español e inglés.">
+<meta name="theme-color" content="#12203a">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Reto de Adviento en Familia · Luz en casa">
+<meta property="og:description" content="27 días para preparar el corazón: oración, reto familiar del día y Novena de Aguinaldos. Empieza el 29 de noviembre.">
+<meta property="og:image" content="https://raw.githubusercontent.com/haroldco45/adviento-en-familia/main/og-pesebre.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,800;1,600&family=Great+Vibes&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--night:#12203a;--night2:#1c2f52;--gold:#f2b84b;--ember:#e4572e;--cream:#fff7ea;--ink:#1e2433;--muted:#6b7280;--green:#2f6b4f}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Nunito,system-ui,sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+img{display:block;max-width:100%}
+button{font:inherit;cursor:pointer;border:0}
+.wrap{max-width:560px;margin:0 auto;position:relative}
+
+/* barra */
+.top{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:linear-gradient(#12203ae6,#12203a00);color:#fff}
+.brand{font-weight:800;letter-spacing:.5px;font-size:13px;opacity:.9}
+.lang{background:#ffffff22;color:#fff;border-radius:999px;padding:6px 12px;font-weight:800;font-size:12px;backdrop-filter:blur(6px)}
+
+/* hero */
+.hero{position:relative;min-height:100svh;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:var(--night)}
+.slides,.slides div{position:absolute;inset:0}
+.slides div{background-size:cover;background-position:center;opacity:0;transition:opacity 1.6s ease;animation:kb 14s ease-in-out infinite alternate}
+.slides div.on{opacity:1}
+@keyframes kb{from{transform:scale(1.05) translate(0,0)}to{transform:scale(1.2) translate(-2%,-3%)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#12203a55 0%,#12203a33 35%,#12203af2 78%)}
+.spark{position:absolute;width:4px;height:4px;border-radius:50%;background:#fff;box-shadow:0 0 8px #fff;z-index:2;animation:tw 3s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.15;transform:translateY(0)}50%{opacity:1;transform:translateY(-8px)}}
+.hero-in{position:relative;z-index:3;padding:0 22px 34px;text-align:center}
+.kicker{font-family:Fraunces,serif;font-weight:800;letter-spacing:3px;color:var(--gold);font-size:20px}
+.script{font-family:"Great Vibes",cursive;font-size:clamp(68px,20vw,104px);line-height:.95;color:#fff;text-shadow:0 4px 24px #0008;margin:2px 0 8px}
+.sub{font-family:Fraunces,serif;font-size:24px;font-weight:600}
+.sub2{font-style:italic;opacity:.9;margin:6px auto 0;max-width:340px}
+.tag{margin:18px 0 0;font-size:19px;font-weight:600}
+.tag b{color:var(--gold)}
+.cta{display:block;width:100%;max-width:380px;margin:22px auto 12px;background:var(--ember);color:#fff;font-weight:800;font-size:19px;padding:17px 20px;border-radius:16px;box-shadow:0 6px 0 #a83a1b,0 12px 30px #0006;animation:pulse 2.4s infinite}
+.cta:active{transform:translateY(3px);box-shadow:0 3px 0 #a83a1b}
+@keyframes pulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.12)}}
+.count{display:flex;justify-content:center;gap:8px;margin-top:6px}
+.count div{background:#ffffff1c;border:1px solid #ffffff33;backdrop-filter:blur(6px);border-radius:12px;min-width:66px;padding:8px 4px}
+.count b{display:block;font-family:Fraunces,serif;font-size:26px}
+.count span{font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.85}
+.when{margin-top:10px;font-weight:800;letter-spacing:1.5px;font-size:13px}
+.when em{color:var(--gold);font-style:normal}
+
+/* secciones */
+section{padding:34px 18px}
+h2{font-family:Fraunces,serif;font-size:28px;line-height:1.1;margin-bottom:6px;color:var(--night)}
+.lead{color:var(--muted);margin-bottom:18px}
+
+/* hoy */
+.today{background:linear-gradient(160deg,var(--night),var(--night2));color:#fff;border-radius:26px;margin:-26px 12px 0;position:relative;z-index:5;padding:22px;box-shadow:0 20px 40px #12203a40}
+.today h2{color:#fff;font-size:22px}
+.today .date{color:var(--gold);font-weight:800;font-size:13px;letter-spacing:1px;text-transform:uppercase}
+.today p{opacity:.9;margin-top:6px}
+.prog{display:flex;align-items:center;gap:16px;margin-top:16px}
+.ring{--p:0;width:78px;height:78px;border-radius:50%;background:conic-gradient(var(--gold) calc(var(--p)*1%),#ffffff22 0);display:grid;place-items:center;flex:none}
+.ring b{background:var(--night);width:62px;height:62px;border-radius:50%;display:grid;place-items:center;font-family:Fraunces,serif;font-size:18px}
+.btn2{background:var(--gold);color:var(--night);font-weight:800;padding:12px 16px;border-radius:12px;margin-top:14px}
+.btn3{background:#ffffff1f;color:#fff;font-weight:800;padding:12px 16px;border-radius:12px;margin-top:14px}
+
+/* corona */
+.weeks{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.wk{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:1/1.1;color:#fff;background:#333 center/cover}
+.wk::after{content:"";position:absolute;inset:0;background:linear-gradient(#0000 30%,#000c)}
+.wk .t{position:absolute;z-index:2;bottom:12px;left:12px;right:12px}
+.wk small{font-weight:800;letter-spacing:1px;font-size:11px;color:var(--gold);text-transform:uppercase}
+.wk b{display:block;font-family:Fraunces,serif;font-size:21px}
+.wk.lit{outline:3px solid var(--gold);box-shadow:0 0 26px #f2b84b88}
+.wk.lit::before{content:"";position:absolute;z-index:2;top:12px;right:12px;width:12px;height:18px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:radial-gradient(#fff 15%,#ffd36b 45%,#e4572e 90%);box-shadow:0 0 18px 6px #f2b84baa;animation:flick .25s infinite alternate}
+@keyframes flick{to{transform:scale(1.08) rotate(3deg)}}
+
+/* calendario */
+.days{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 18px 16px;margin:0 -18px}
+.days::-webkit-scrollbar{display:none}
+.day{flex:none;width:150px;height:210px;border-radius:20px;overflow:hidden;position:relative;scroll-snap-align:start;color:#fff;text-align:left;background:#333 center/cover;transition:transform .25s}
+.day:active{transform:scale(.96)}
+.day::after{content:"";position:absolute;inset:0;background:linear-gradient(#0000 35%,#000d)}
+.day .n{position:absolute;top:10px;left:10px;z-index:2;background:#000a;border-radius:999px;padding:3px 10px;font-weight:800;font-size:12px}
+.day .w{position:absolute;bottom:12px;left:12px;right:10px;z-index:2}
+.day .w small{display:block;font-size:11px;opacity:.85;font-weight:800;text-transform:uppercase;letter-spacing:.6px}
+.day .w b{font-family:Fraunces,serif;font-size:19px;line-height:1.05}
+.day.done{outline:3px solid var(--gold)}
+.day.done .n{background:var(--gold);color:var(--night)}
+.day.is-today{outline:3px solid var(--ember);animation:glow 2s infinite}
+@keyframes glow{50%{box-shadow:0 0 22px var(--ember)}}
+.day.nov .n::after{content:" · Novena";color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(48px,1fr));gap:7px;margin-top:6px}
+.cell{aspect-ratio:1;border-radius:12px;background:#fff;border:1px solid #eadfcf;font-weight:800;color:var(--night);display:grid;place-items:center;font-size:15px}
+.cell.done{background:var(--gold);border-color:var(--gold)}
+.cell.is-today{background:var(--ember);color:#fff;border-color:var(--ember)}
+.cell.nov{box-shadow:inset 0 -4px 0 var(--green)}
+
+/* novena */
+.nov-box{background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 10px 30px #12203a14}
+.nov-img{height:200px;background:#333 center/cover;position:relative}
+.nov-img::after{content:"";position:absolute;inset:0;background:linear-gradient(#0000,#12203acc)}
+.nov-img h3{position:absolute;z-index:2;bottom:14px;left:16px;right:16px;color:#fff;font-family:Fraunces,serif;font-size:24px}
+.nov-in{padding:18px}
+.nov-in ol{margin:10px 0 0 20px;line-height:1.7}
+.gozo{margin-top:14px;background:var(--cream);border-left:4px solid var(--gold);padding:12px 14px;border-radius:10px;font-family:Fraunces,serif;font-style:italic;font-size:18px}
+
+/* familia */
+.fam{display:flex;gap:8px;margin-top:10px}
+.fam input{flex:1;border:1px solid #ddd;border-radius:12px;padding:12px;font:inherit}
+.fam button{background:var(--night);color:#fff;border-radius:12px;padding:0 16px;font-weight:800}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chip{background:#fff;border:1px solid #eadfcf;border-radius:999px;padding:6px 12px;font-weight:700;font-size:14px}
+.chip button{background:none;color:var(--ember);margin-left:6px;font-weight:800}
+.acts{display:grid;gap:10px;margin-top:16px}
+.act{display:block;text-align:center;text-decoration:none;font-weight:800;padding:15px;border-radius:14px}
+.act.wa{background:#1f9d55;color:#fff}
+.act.cal{background:var(--night);color:#fff}
+
+footer{background:var(--night);color:#cdd5e3;padding:28px 18px 40px;font-size:13px;text-align:center}
+footer b{color:var(--gold)}
+footer a{color:#fff}
+.credits{opacity:.6;margin-top:12px;font-size:11px}
+
+/* lector del día */
+.sheet{position:fixed;inset:0;z-index:100;background:var(--cream);overflow-y:auto;transform:translateY(100%);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.sheet.open{transform:none}
+.sh-hero{height:46svh;min-height:280px;background:#333 center/cover;position:relative;color:#fff;display:flex;align-items:flex-end}
+.sh-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(#12203a66,#12203a00 30%,#12203af0)}
+.sh-hero .t{position:relative;z-index:2;padding:20px}
+.sh-hero small{font-weight:800;letter-spacing:1.5px;color:var(--gold);text-transform:uppercase;font-size:12px}
+.sh-hero h3{font-family:Fraunces,serif;font-size:38px;line-height:1}
+.close{position:absolute;z-index:3;top:14px;right:14px;background:#000a;color:#fff;border-radius:999px;padding:8px 14px;font-weight:800}
+.sh-body{padding:20px 20px 120px}
+.verse{font-family:Fraunces,serif;font-size:21px;line-height:1.4;font-style:italic;color:var(--night)}
+.ref{color:var(--muted);font-size:13px;margin:6px 0 20px;font-weight:700}
+.blk{background:#fff;border-radius:18px;padding:16px;margin-bottom:12px;box-shadow:0 4px 14px #12203a0d}
+.blk h4{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ember);margin-bottom:6px}
+.blk p{line-height:1.6}
+.blk.ch{background:var(--night);color:#fff}
+.blk.ch h4{color:var(--gold)}
+.markbar{position:fixed;z-index:101;left:0;right:0;bottom:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(#fff7ea00,#fff7ea 30%);display:none}
+.markbar.show{display:block}
+.markbar button{width:100%;max-width:520px;margin:0 auto;display:block;background:var(--ember);color:#fff;font-weight:800;font-size:17px;padding:16px;border-radius:14px}
+.markbar button.ok{background:var(--green)}
+.markbar button:disabled{background:#9aa3b2}
+.toast{position:fixed;z-index:200;left:50%;bottom:90px;transform:translate(-50%,40px);opacity:0;background:var(--night);color:#fff;padding:12px 18px;border-radius:12px;font-weight:700;transition:.35s;max-width:90%;text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.reveal{opacity:0;transform:translateY(24px);transition:.7s}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<div class="top"><span class="brand">VIBRAS POSITIVAS HM</span><button class="lang" id="langBtn">EN</button></div>
+
+<header class="hero" id="inicio">
+  <div class="slides" id="slides"></div>
+  <div class="hero-in">
+    <div class="kicker" data-t="kicker"></div>
+    <div class="script" data-t="script"></div>
+    <div class="sub" data-t="sub"></div>
+    <p class="sub2" data-t="sub2"></p>
+    <p class="tag" data-h="tag"></p>
+    <button class="cta" id="ctaBtn" data-t="cta"></button>
+    <div class="count" id="count"></div>
+    <div class="when" id="when"></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="today reveal" id="today"></div>
+
+  <section class="reveal">
+    <h2 data-t="calT"></h2>
+    <p class="lead" data-t="calL"></p>
+    <div class="days" id="days"></div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="reveal">
+    <h2 data-t="wreathT"></h2>
+    <p class="lead" data-t="wreathL"></p>
+    <div class="weeks" id="weeks"></div>
+  </section>
+
+  <section class="reveal">
+    <div class="nov-box">
+      <div class="nov-img" id="novImg"><h3 data-t="novT"></h3></div>
+      <div class="nov-in">
+        <p data-t="novL"></p>
+        <ol id="novList"></ol>
+        <div class="gozo" data-t="gozo"></div>
+        <button class="btn2" id="novBtn" data-t="novBtn"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <h2 data-t="famT"></h2>
+    <p class="lead" data-t="famL"></p>
+    <div class="fam"><input id="famIn" maxlength="30"><button id="famAdd" data-t="add"></button></div>
+    <div class="chips" id="chips"></div>
+    <div class="acts">
+      <a class="act wa" id="waBtn" target="_blank" rel="noopener" data-t="wa"></a>
+      <a class="act cal" id="calBtn" href="#" data-t="cal"></a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <p data-h="foot"></p>
+  <p style="margin-top:8px"><a href="https://wa.me/573117700431" target="_blank" rel="noopener">WhatsApp 311 770 0431</a></p>
+  <p class="credits" data-t="credits"></p>
+</footer>
+
+<div class="sheet" id="sheet"></div>
+<div class="markbar" id="markbar"><button id="markBtn"></button></div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ---------- Fotos reales (Wikimedia Commons) con respaldo ---------- */
+const C=(f,w=1000)=>`https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(f)}?width=${w}`;
+const PHOTOS=[
+ ["Dülmen,_St.-Viktor-Kirche,_Innenansicht,_Krippe_--_2018_--_0614.jpg","pesebre-familia.jpg"],
+ ["Velden_Seecorso_Wörther_See-Bucht_Adventkranz_23122023_0318.jpg","pesebre-familia.jpg"],
+ ["Christmas2004inMedellín.JPG","pesebre-familia.jpg"],
+ ["Hollfeld_Krippe_P1340403.jpg","pesebre-familia.jpg"],
+ ["Flamme_001_2012_12_01.jpg","pesebre-familia.jpg"],
+ ["Mission_Espada_Nativity_Scene.jpg","pesebre-familia.jpg"],
+ ["Velden_floating_advent_wreath_on_the_surface_of_Lake_Woerth_11122009_22.jpg","pesebre-familia.jpg"],
+ ["Bogota-christmas-2005.jpg","pesebre-familia.jpg"],
+ ["Nativity_tree2011.jpg","pesebre-familia.jpg"],
+ ["2006-12-24_Temple_candles.jpg","pesebre-familia.jpg"]
+];
+const resolved={};
+function photo(i,w=1000){
+  const [f,fb]=PHOTOS[i%PHOTOS.length];const key=i%PHOTOS.length+'_'+w;
+  if(resolved[key])return resolved[key];
+  const url=C(f,w);resolved[key]=url;
+  const t=new Image();t.onerror=()=>{resolved[key]=fb;document.querySelectorAll(`[data-ph="${key}"]`).forEach(el=>el.style.backgroundImage=`url("${fb}")`)};t.src=url;
+  return url;
+}
+function bg(el,i,w){const u=photo(i,w);el.dataset.ph=i%PHOTOS.length+'_'+w;el.style.backgroundImage=`url("${u}")`;}
+
+/* ---------- Fechas en hora real de Colombia (UTC-5) ---------- */
+const START=Date.UTC(2026,10,29,5,0,0); // 29 nov 2026 00:00 Bogotá
+const DAY=864e5;
+const nowCO=()=>Date.now();
+function dayIndexNow(){return Math.floor((nowCO()-START)/DAY);} // 0 = día 1
+function dateOf(i,lang){const d=new Date(START+i*DAY+5*3600e3);return d.toLocaleDateString(lang==='en'?'en-US':'es-CO',{weekday:'long',day:'numeric',month:'long',timeZone:'America/Bogota'});}
+function shortDate(i,lang){const d=new Date(START+i*DAY+5*3600e3);return d.toLocaleDateString(lang==='en'?'en-US':'es-CO',{day:'numeric',month:'short',timeZone:'America/Bogota'});}
+
+/* ---------- Contenido: 27 días (Reina-Valera 1909 / King James) ---------- */
+const D=[
+["Esperanza","Hope","Isaías 9:2","Isaiah 9:2","El pueblo que andaba en tinieblas vio gran luz: los que moraban en tierra de sombra de muerte, luz resplandeció sobre ellos.","The people that walked in darkness have seen a great light: they that dwell in the land of the shadow of death, upon them hath the light shined.","Hoy empieza el Adviento. No hace falta tenerlo todo resuelto: basta con dejar una rendija abierta para que entre la luz.","Advent begins today. We don't need everything figured out: we only need to leave a crack open for the light to come in.","Pongan la corona de Adviento (o cuatro velas) en un lugar donde toda la familia la vea y enciendan juntos la primera.","Set up an Advent wreath (or four candles) where the whole family can see it and light the first one together."],
+["Vigilancia","Watchfulness","Marcos 13:33","Mark 13:33","Mirad, velad y orad: porque no sabéis cuándo será el tiempo.","Take ye heed, watch and pray: for ye know not when the time is.","Velar es estar despiertos al bien que pasa cerca: una necesidad, una palabra amable, un momento con los nuestros.","To keep watch is to stay awake to the good happening around us: a need, a kind word, a moment with our people.","Esta noche, antes de dormir, cada uno cuenta un momento bueno del día.","Tonight, before bed, everyone shares one good moment from the day."],
+["Camino","The Way","Isaías 40:3","Isaiah 40:3","Voz que clama en el desierto: Barred camino a Jehová: enderezad calzada en la soledad a nuestro Dios.","The voice of him that crieth in the wilderness, Prepare ye the way of the LORD, make straight in the desert a highway for our God.","Preparar el camino es quitar piedras: un rencor, una mala costumbre, una deuda pendiente con alguien.","Preparing the way means clearing stones: a grudge, a bad habit, something we owe someone.","Ordenen juntos un rincón de la casa y regalen algo que ya no usen.","Tidy one corner of the house together and give away something you no longer use."],
+["Paz","Peace","Isaías 2:4","Isaiah 2:4","Y volverán sus espadas en rejas de arado, y sus lanzas en hoces.","And they shall beat their swords into plowshares, and their spears into pruninghooks.","La paz empieza en la mesa de la casa: en cómo nos hablamos cuando estamos cansados.","Peace begins at the family table: in how we speak to each other when we're tired.","Un día sin gritos ni palabras duras. Si alguien falla, se pide perdón y se sigue.","A day without yelling or harsh words. If someone slips, apologize and keep going."],
+["Confianza","Trust","Proverbios 3:5","Proverbs 3:5","Fíate de Jehová de todo tu corazón, y no estribes en tu prudencia.","Trust in the LORD with all thine heart; and lean not unto thine own understanding.","Hay preocupaciones que no se arreglan pensando más, sino entregándolas.","Some worries aren't solved by thinking harder, but by handing them over.","Cada uno escribe en un papel una preocupación y la ponen junto al pesebre.","Each person writes down one worry and places it by the nativity scene."],
+["Gratitud","Gratitude","1 Tesalonicenses 5:18","1 Thessalonians 5:18","Dad gracias en todo; porque esta es la voluntad de Dios para con vosotros en Cristo Jesús.","In every thing give thanks: for this is the will of God in Christ Jesus concerning you.","Agradecer cambia la mirada: lo que teníamos por normal se vuelve regalo.","Gratitude changes how we see: what seemed ordinary becomes a gift.","En la comida, cada uno da gracias por una persona de la familia, diciéndolo en voz alta.","At mealtime, everyone gives thanks out loud for one family member."],
+["Perdón","Forgiveness","Colosenses 3:13","Colossians 3:13","De la manera que Cristo os perdonó, así también hacedlo vosotros.","Even as Christ forgave you, so also do ye.","Perdonar no es olvidar lo que pasó, es decidir que eso ya no manda en nuestro corazón.","Forgiving isn't forgetting what happened; it's deciding it no longer rules our heart.","Llamen o escriban a alguien con quien haya una distancia, solo para saludar.","Call or text someone you've drifted from, just to say hello."],
+["Preparación","Preparation","Lucas 3:5","Luke 3:5","Todo valle se henchirá, y bajaráse todo monte y collado.","Every valley shall be filled, and every mountain and hill shall be brought low.","Segunda semana de Adviento: lo que está hundido se levanta y lo que es orgullo se baja.","Second week of Advent: what is sunk is lifted up, and what is pride is brought low.","Enciendan la segunda vela y armen juntos (o terminen) el pesebre de la casa.","Light the second candle and build (or finish) the family nativity scene together."],
+["Luz","Light","Juan 8:12","John 8:12","Yo soy la luz del mundo: el que me sigue, no andará en tinieblas, mas tendrá la lumbre de la vida.","I am the light of the world: he that followeth me shall not walk in darkness, but shall have the light of life.","Es la noche de las velitas: cada vela que prendemos dice que la oscuridad no tiene la última palabra.","It's the Night of the Little Candles: every candle we light says darkness doesn't have the last word.","Noche de velitas en familia, con cuidado: velas lejos de los niños, de cortinas y de la pólvora.","Family candle night, safely: keep candles away from kids, curtains and fireworks."],
+["María","Mary","Lucas 1:38","Luke 1:38","Entonces María dijo: He aquí la criada del Señor; hágase a mí conforme a tu palabra.","And Mary said, Behold the handmaid of the Lord; be it unto me according to thy word.","Día de la Inmaculada. El sí de María fue valiente: dijo que sí sin tener todo el mapa.","Feast of the Immaculate Conception. Mary's yes was brave: she said yes without the whole map.","Recen juntos un Avemaría por las madres y abuelas de la familia.","Pray a Hail Mary together for the mothers and grandmothers in the family."],
+["Humildad","Humility","Lucas 1:52","Luke 1:52","Quitó los poderosos de los tronos, y levantó a los humildes.","He hath put down the mighty from their seats, and exalted them of low degree.","Dios suele llegar por la puerta pequeña: en lo sencillo, en lo que nadie aplaude.","God tends to arrive through the small door: in simple things nobody applauds.","Hagan hoy un oficio de la casa que normalmente hace otra persona, sin decir nada.","Do a household chore that someone else usually does, without saying anything."],
+["Servicio","Service","Gálatas 5:13","Galatians 5:13","Servíos por amor los unos a los otros.","By love serve one another.","Servir es la forma más concreta de querer.","Serving is the most concrete way to love.","Ayuden a un vecino o a un adulto mayor con algo práctico.","Help a neighbor or an older person with something practical."],
+["Paciencia","Patience","Santiago 5:7","James 5:7","Pues, hermanos, tened paciencia hasta la venida del Señor.","Be patient therefore, brethren, unto the coming of the Lord.","El labrador espera la lluvia sin desesperar. Lo que vale la pena madura despacio.","The farmer waits for the rain without despair. What's worth having ripens slowly.","Cuando algo los impaciente hoy, respiren tres veces antes de responder.","When something makes you impatient today, take three breaths before answering."],
+["Compartir","Sharing","Lucas 3:11","Luke 3:11","El que tiene dos túnicas, dé al que no tiene; y el que tiene qué comer, haga lo mismo.","He that hath two coats, let him impart to him that hath none; and he that hath meat, let him do likewise.","Juan el Bautista no pidió cosas imposibles: pidió compartir lo que sobra.","John the Baptist didn't ask for the impossible: he asked us to share what we have extra.","Armen una bolsa con ropa o mercado para alguien que lo necesite.","Put together a bag of clothes or groceries for someone in need."],
+["Alegría","Joy","Filipenses 4:4","Philippians 4:4","Gozaos en el Señor siempre: otra vez digo: Que os gocéis.","Rejoice in the Lord alway: and again I say, Rejoice.","Tercera semana: la vela rosada. La alegría cristiana no depende de que todo salga bien.","Third week: the rose candle. Christian joy doesn't depend on everything going right.","Enciendan la tercera vela y pongan música navideña mientras cocinan o cenan juntos.","Light the third candle and play Christmas music while you cook or eat together."],
+["Escuchar","Listening","Santiago 1:19","James 1:19","Todo hombre sea pronto para oír, tardío para hablar.","Let every man be swift to hear, slow to speak.","Escuchar de verdad es un regalo que no cuesta plata y vale mucho.","Truly listening is a gift that costs no money and is worth a lot.","Pregúntenle a un abuelo o a un mayor cómo eran sus Navidades de niño, y escuchen sin el celular.","Ask a grandparent or elder about their childhood Christmases, and listen with phones away."],
+["Familia","Family","Salmo 133:1","Psalm 133:1","¡Mirad cuán bueno y cuán delicioso es habitar los hermanos igualmente en uno!","Behold, how good and how pleasant it is for brethren to dwell together in unity!","Mañana empieza la Novena. Hoy toca invitar: la Navidad se celebra mejor acompañados.","The Novena starts tomorrow. Today is for inviting: Christmas is better celebrated together.","Inviten a familiares y vecinos a la Novena de Aguinaldos y repartan quién lleva qué.","Invite family and neighbors to the Christmas Novena and decide who brings what."],
+["Amor","Love","1 Juan 4:8","1 John 4:8","Dios es amor.","God is love.","Primer día de la Novena de Aguinaldos. Todo empieza aquí: Dios no viene a juzgarnos, viene a amarnos.","First day of the Christmas Novena. It all starts here: God doesn't come to judge us, but to love us.","Recen la Novena en familia y canten los gozos, aunque desafinen.","Pray the Novena as a family and sing the carols, even off-key."],
+["Promesa","Promise","Isaías 7:14","Isaiah 7:14","He aquí que la virgen concebirá, y parirá hijo, y llamará su nombre Emmanuel.","Behold, a virgin shall conceive, and bear a son, and shall call his name Immanuel.","Emmanuel quiere decir Dios con nosotros. No arriba ni lejos: con nosotros.","Immanuel means God with us. Not above or far away: with us.","Novena día 2. Cada uno cuenta una promesa que Dios le ha cumplido.","Novena day 2. Each person shares a promise God has kept in their life."],
+["José","Joseph","Mateo 1:24","Matthew 1:24","Y despertado José del sueño, hizo como el ángel del Señor le había mandado.","Then Joseph being raised from sleep did as the angel of the Lord had bidden him.","José no dice ni una palabra en el Evangelio, pero actúa. Su fe se ve en lo que hace.","Joseph doesn't say a word in the Gospel, but he acts. His faith shows in what he does.","Novena día 3. Den las gracias a los papás y abuelos por lo que hacen en silencio.","Novena day 3. Thank the fathers and grandfathers for what they do quietly."],
+["Fe","Faith","Lucas 1:45","Luke 1:45","Y bienaventurada la que creyó, porque se cumplirán las cosas que le fueron dichas de parte del Señor.","And blessed is she that believed: for there shall be a performance of those things which were told her from the Lord.","Isabel reconoce la fe de María. A veces son otros quienes nos ayudan a ver lo que Dios hace.","Elizabeth recognizes Mary's faith. Sometimes others help us see what God is doing.","Novena día 4. Visiten o llamen a un familiar que esté solo estos días.","Novena day 4. Visit or call a relative who is alone these days."],
+["Fidelidad","Faithfulness","Lamentaciones 3:22-23","Lamentations 3:22-23","Nunca decrecieron sus misericordias. Nuevas son cada mañana; grande es tu fidelidad.","His compassions fail not. They are new every morning: great is thy faithfulness.","Cuarta semana: las cuatro velas encendidas. Cada mañana es una oportunidad nueva.","Fourth week: all four candles lit. Every morning is a new chance.","Novena día 5. Enciendan la cuarta vela y recen por quienes la están pasando difícil.","Novena day 5. Light the fourth candle and pray for those going through hard times."],
+["Hospitalidad","Hospitality","Lucas 2:7","Luke 2:7","Porque no había lugar para ellos en el mesón.","Because there was no room for them in the inn.","No hubo posada para ellos. ¿Hay lugar en nuestra casa y en nuestra agenda para el que llega?","There was no room for them. Is there room in our home and our schedule for whoever comes?","Novena día 6. Inviten a alguien que no tenga con quién rezar la Novena.","Novena day 6. Invite someone who has nobody to pray the Novena with."],
+["Sencillez","Simplicity","Lucas 2:12","Luke 2:12","Hallaréis al niño envuelto en pañales, echado en un pesebre.","Ye shall find the babe wrapped in swaddling clothes, lying in a manger.","La señal no fue un palacio: fue un niño en un pesebre. Lo sencillo también es sagrado.","The sign wasn't a palace: it was a baby in a manger. Simple things are sacred too.","Novena día 7. Hagan un regalo hecho a mano: una carta, un dibujo, una receta.","Novena day 7. Make a handmade gift: a letter, a drawing, a recipe."],
+["Generosidad","Generosity","2 Corintios 9:7","2 Corinthians 9:7","Dios ama el dador alegre.","God loveth a cheerful giver.","Dar con alegría es distinto a dar por compromiso. Se nota.","Giving cheerfully is different from giving out of obligation. People can tell.","Novena día 8. Preparen buñuelos o natilla y compartan con un vecino.","Novena day 8. Make buñuelos or natilla and share with a neighbor."],
+["Nochebuena","Christmas Eve","Lucas 2:11","Luke 2:11","Que os es nacido hoy, en la ciudad de David, un Salvador, que es CRISTO el Señor.","For unto you is born this day in the city of David a Saviour, which is Christ the Lord.","Último día de la Novena. Esta noche no celebramos un recuerdo: celebramos que Él sigue llegando.","Last day of the Novena. Tonight we don't celebrate a memory: we celebrate that He keeps coming.","Novena día 9. A medianoche, pongan juntos al Niño en el pesebre.","Novena day 9. At midnight, place the Baby Jesus in the manger together."],
+["Navidad","Christmas","Juan 1:14","John 1:14","Y aquel Verbo fue hecho carne, y habitó entre nosotros.","And the Word was made flesh, and dwelt among us.","¡Feliz Navidad! La luz que esperábamos ya está en casa. Que no se apague el resto del año.","Merry Christmas! The light we waited for is home. Let's keep it burning all year.","Den gracias por el reto cumplido y escojan una costumbre de estos días para seguir todo el año.","Give thanks for finishing the challenge and pick one habit from these days to keep all year."]
+];
+const N=D.length; // 27
+const NOV_START=17; // índice del 16 dic
+
+/* ---------- Textos de la interfaz ---------- */
+const T={
+es:{kicker:"RETO DE",script:"Adviento",sub:"Luz en Casa",sub2:"27 días de oración en familia, del 29 de noviembre a Navidad, con la Novena de Aguinaldos.",tag:"Esta Navidad, lleva a Dios <b>a tu familia</b>",cta:"Empezar mi reto gratis",d:"Días",h:"Horas",m:"Min",s:"Seg",starts:"29 DE NOVIEMBRE",left:n=>`FALTAN ${n} ${n===1?'DÍA':'DÍAS'}`,running:"EL RETO ESTÁ EN MARCHA",ended:"¡FELIZ NAVIDAD!",
+todayLbl:"Hoy",before:n=>`Faltan ${n} ${n===1?'día':'días'} para el primer domingo de Adviento. Ve leyendo el día 1 y prepara la corona.`,during:(i,w)=>`Día ${i+1} de ${N}: <b>${w}</b>.`,after:"El reto terminó. Que la luz siga encendida en casa.",readToday:"Leer el día de hoy",readFirst:"Ver el día 1",done:n=>`${n} de ${N} días cumplidos`,streak:n=>`Racha: ${n} ${n===1?'día':'días'} seguidos`,
+calT:"Tu calendario de Adviento",calL:"Un tema por día: lectura, reflexión, oración y un reto sencillo para hacer en familia.",day:"Día",
+wreathT:"La corona de Adviento",wreathL:"Cada domingo se enciende una vela más. La que corresponde a esta semana brilla aquí.",weeks:[["Semana 1","Esperanza"],["Semana 2","Paz"],["Semana 3","Alegría"],["Semana 4","Amor"]],
+novT:"Novena de Aguinaldos · 16 al 24 de diciembre",novL:"La tradición colombiana para rezar en familia y con los vecinos los nueve días antes de Navidad. Este es el orden de cada noche:",novItems:["Oración para todos los días","Consideración del día","Oración a la Santísima Virgen","Oración a San José","Gozos","Oración al Niño Jesús","Villancicos y a compartir"],gozo:"Ven, ven, ven, ven a nuestras almas, Jesús, ven, ven, ven.",novBtn:"Ir al primer día de la Novena",
+famT:"Hazlo en familia",famL:"Anota quiénes hacen el reto contigo. Todo queda guardado en tu celular.",add:"Agregar",ph:"Nombre (ej. Isaac)",wa:"Invitar a la familia por WhatsApp",cal:"Recordatorio diario a las 7:00 p. m.",
+waMsg:"Te invito al Reto de Adviento en Familia: 27 días de oración, del 29 de noviembre a Navidad, con la Novena de Aguinaldos. Es gratis:",
+foot:"Una app de <b>Vibras Positivas HM</b> · Caucasia, Antioquia",credits:"Fotos: Wikimedia Commons (CC BY-SA, sus autores). Textos bíblicos: Reina-Valera 1909 y King James (dominio público). Hora de Colombia (UTC-5).",
+readL:"Lectura",refl:"Para pensar",pray:"Oración",prayTxt:w=>`Señor Jesús, que vienes a nuestra casa: en este día de ${w.toLowerCase()} te abrimos la puerta. Bendice a nuestra familia, a los que están lejos y a los que más te necesitan. Ven, Señor, no tardes. Amén.`,chal:"Reto en familia",mark:"Marcar como cumplido",marked:"Cumplido",locked:d=>`Se puede marcar desde el ${d}`,close:"Cerrar",toastDone:"¡Día cumplido! Sigue así.",toastFam:"Agregado a la familia",calFile:"Reto de Adviento en Familia"},
+en:{kicker:"THE",script:"Advent",sub:"Light at Home",sub2:"27 days of family prayer, from November 29 to Christmas, including the Colombian Christmas Novena.",tag:"This Christmas, bring God <b>to your family</b>",cta:"Start my free challenge",d:"Days",h:"Hours",m:"Min",s:"Sec",starts:"NOVEMBER 29",left:n=>`${n} ${n===1?'DAY':'DAYS'} TO GO`,running:"THE CHALLENGE IS ON",ended:"MERRY CHRISTMAS!",
+todayLbl:"Today",before:n=>`${n} ${n===1?'day':'days'} until the first Sunday of Advent. Read day 1 ahead and get your wreath ready.`,during:(i,w)=>`Day ${i+1} of ${N}: <b>${w}</b>.`,after:"The challenge is over. Keep the light burning at home.",readToday:"Read today's day",readFirst:"Preview day 1",done:n=>`${n} of ${N} days completed`,streak:n=>`Streak: ${n} ${n===1?'day':'days'} in a row`,
+calT:"Your Advent calendar",calL:"One theme per day: a reading, a reflection, a prayer and a simple family challenge.",day:"Day",
+wreathT:"The Advent wreath",wreathL:"Each Sunday one more candle is lit. This week's candle glows here.",weeks:[["Week 1","Hope"],["Week 2","Peace"],["Week 3","Joy"],["Week 4","Love"]],
+novT:"Christmas Novena · December 16–24",novL:"The Colombian tradition of praying with family and neighbors for the nine nights before Christmas. Each night follows this order:",novItems:["Prayer for every day","Reflection of the day","Prayer to the Virgin Mary","Prayer to Saint Joseph","Carols (gozos)","Prayer to the Child Jesus","Christmas songs and sharing"],gozo:"Come, come, come into our souls, Jesus, come, come, come.",novBtn:"Go to the first Novena day",
+famT:"Do it as a family",famL:"Add who is doing the challenge with you. Everything is saved on your phone.",add:"Add",ph:"Name (e.g. Isaac)",wa:"Invite family on WhatsApp",cal:"Daily reminder at 7:00 p.m.",
+waMsg:"Join me in the Advent Family Challenge: 27 days of prayer from November 29 to Christmas, including the Christmas Novena. It's free:",
+foot:"An app by <b>Vibras Positivas HM</b> · Caucasia, Colombia",credits:"Photos: Wikimedia Commons (CC BY-SA, their authors). Bible texts: Reina-Valera 1909 and King James (public domain). Colombia time (UTC-5).",
+readL:"Reading",refl:"To reflect",pray:"Prayer",prayTxt:w=>`Lord Jesus, who come to our home: on this day of ${w.toLowerCase()} we open the door to you. Bless our family, those who are far away and those who need you most. Come, Lord, do not delay. Amen.`,chal:"Family challenge",mark:"Mark as done",marked:"Done",locked:d=>`You can mark it from ${d}`,close:"Close",toastDone:"Day completed! Keep going.",toastFam:"Added to the family",calFile:"Advent Family Challenge"}
+};
+
+/* ---------- Estado ---------- */
+const store={get(k,d){try{return JSON.parse(localStorage.getItem('adv_'+k))??d}catch(e){return d}},set(k,v){try{localStorage.setItem('adv_'+k,JSON.stringify(v))}catch(e){}}};
+let lang=store.get('lang',(navigator.language||'es').startsWith('en')?'en':'es');
+let done=store.get('done',[]);let fam=store.get('fam',[]);let openIdx=null;
+const L=()=>T[lang];const W=i=>D[i][lang==='en'?1:0];
+const $=id=>document.getElementById(id);
+
+function toast(m){const t=$('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}
+
+/* ---------- Render ---------- */
+function renderStatic(){
+  document.documentElement.lang=lang;$('langBtn').textContent=lang==='es'?'EN':'ES';
+  document.querySelectorAll('[data-t]').forEach(e=>{const v=L()[e.dataset.t];if(typeof v==='string')e.textContent=v});
+  document.querySelectorAll('[data-h]').forEach(e=>e.innerHTML=L()[e.dataset.h]);
+  $('famIn').placeholder=L().ph;
+  $('novList').innerHTML=L().novItems.map(x=>`<li>${x}</li>`).join('');
+  $('waBtn').href='https://wa.me/?text='+encodeURIComponent(L().waMsg+' '+location.href.split('#')[0]);
+}
+function streak(){const t=Math.min(dayIndexNow(),N-1);let s=0;for(let i=t;i>=0;i--){if(done.includes(i))s++;else if(i<t)break;}return s}
+function renderToday(){
+  const i=dayIndexNow();let h=`<div class="date">${L().todayLbl} · ${new Date().toLocaleDateString(lang==='en'?'en-US':'es-CO',{weekday:'long',day:'numeric',month:'long',timeZone:'America/Bogota'})}</div>`;
+  if(i<0)h+=`<h2>${L().readFirst}</h2><p>${L().before(Math.ceil((START-nowCO())/DAY))}</p>`;
+  else if(i<N)h+=`<h2>${W(i)}</h2><p>${L().during(i,W(i))}</p>`;
+  else h+=`<h2>${L().ended}</h2><p>${L().after}</p>`;
+  const p=Math.round(done.length/N*100);
+  h+=`<div class="prog"><div class="ring" style="--p:${p}"><b>${p}%</b></div><div><b>${L().done(done.length)}</b><br><span style="opacity:.8">${L().streak(streak())}</span><br>
+  <button class="btn2" onclick="openDay(${Math.max(0,Math.min(i,N-1))})">${i<0?L().readFirst:L().readToday}</button></div></div>`;
+  $('today').innerHTML=h;
+}
+function renderDays(){
+  const t=dayIndexNow();
+  $('days').innerHTML=D.map((d,i)=>`<button class="day ${done.includes(i)?'done':''} ${i===t?'is-today':''} ${i>=NOV_START&&i<NOV_START+9?'nov':''}" data-i="${i}"><span class="n">${L().day} ${i+1}</span><span class="w"><small>${shortDate(i,lang)}</small><b>${W(i)}</b></span></button>`).join('');
+  $('days').querySelectorAll('.day').forEach(b=>{const k=+b.dataset.i;if(k===7||k===25)b.style.backgroundImage='url("pesebre-familia.jpg")';else bg(b,k,400);b.onclick=()=>openDay(+b.dataset.i)});
+  $('grid').innerHTML=D.map((d,i)=>`<button class="cell ${done.includes(i)?'done':''} ${i===t?'is-today':''} ${i>=NOV_START&&i<NOV_START+9?'nov':''}" onclick="openDay(${i})" aria-label="${L().day} ${i+1}">${i+1}</button>`).join('');
+  const el=$('days').querySelector('.is-today');if(el)$('days').scrollLeft=el.offsetLeft-18;
+}
+function renderWeeks(){
+  const t=dayIndexNow();const wk=t<0?-1:Math.min(3,Math.floor(t/7));
+  $('weeks').innerHTML=L().weeks.map((w,i)=>`<div class="wk ${i<=wk?'lit':''}" data-k="${[1,6,4,9][i]}"><div class="t"><small>${w[0]} · ${shortDate(i*7,lang)}</small><b>${w[1]}</b></div></div>`).join('');
+  $('weeks').querySelectorAll('.wk').forEach(e=>bg(e,+e.dataset.k,500));
+}
+function renderFam(){$('chips').innerHTML=fam.map((n,i)=>`<span class="chip">${n.replace(/[<>&]/g,'')}<button onclick="delFam(${i})" aria-label="x">×</button></span>`).join('')}
+function delFam(i){fam.splice(i,1);store.set('fam',fam);renderFam()}
+
+/* ---------- Lector del día ---------- */
+function openDay(i){
+  const wasOpen=openIdx!=null;openIdx=i;const d=D[i],en=lang==='en';
+  const nov=i>=NOV_START&&i<NOV_START+9?` · Novena ${i-NOV_START+1}`:'';
+  $('sheet').innerHTML=`<div class="sh-hero" id="shHero"><button class="close" onclick="closeDay()">${L().close}</button><div class="t"><small>${L().day} ${i+1}${nov} · ${dateOf(i,lang)}</small><h3>${W(i)}</h3></div></div>
+  <div class="sh-body"><p class="verse">“${d[en?5:4]}”</p><p class="ref">${d[en?3:2]} · ${en?'KJV':'RV 1909'}</p>
+  <div class="blk"><h4>${L().refl}</h4><p>${d[en?7:6]}</p></div>
+  <div class="blk"><h4>${L().pray}</h4><p>${L().prayTxt(W(i))}</p></div>
+  <div class="blk ch"><h4>${L().chal}</h4><p>${d[en?9:8]}</p></div>
+  ${nov?`<div class="blk"><h4>Novena</h4><p>${L().novItems.join(' · ')}</p><div class="gozo">${L().gozo}</div></div>`:''}
+  ${fam.length?`<div class="blk"><h4>${L().famT}</h4><p>${fam.join(', ')}</p></div>`:''}</div>`;
+  if(i===7||i===25){$('shHero').style.backgroundImage='url("pesebre-familia.jpg")'}else bg($('shHero'),i,1100);
+  $('sheet').classList.add('open');$('sheet').scrollTop=0;document.body.style.overflow='hidden';
+  updateMark();$('markbar').classList.add('show');if(!wasOpen)history.pushState({d:i},'','#dia-'+(i+1));else history.replaceState({d:i},'','#dia-'+(i+1));
+}
+function updateMark(){
+  const b=$('markBtn'),i=openIdx;const can=dayIndexNow()>=i;
+  if(done.includes(i)){b.textContent=L().marked;b.className='ok';b.disabled=false}
+  else if(!can){b.textContent=L().locked(shortDate(i,lang));b.className='';b.disabled=true}
+  else{b.textContent=L().mark;b.className='';b.disabled=false}
+}
+function closeDay(fromPop){$('sheet').classList.remove('open');$('markbar').classList.remove('show');document.body.style.overflow='';openIdx=null;if(!fromPop&&location.hash)history.back()}
+$('markBtn').onclick=()=>{const i=openIdx;if(i==null)return;if(done.includes(i))done=done.filter(x=>x!==i);else{done.push(i);toast(L().toastDone)}store.set('done',done);updateMark();renderAll(false)};
+window.addEventListener('popstate',()=>{if(openIdx!=null)closeDay(true)});
+
+/* ---------- Cuenta regresiva ---------- */
+function tick(){
+  const ms=START-nowCO(),i=dayIndexNow();
+  if(ms>0){const d=Math.floor(ms/DAY),h=Math.floor(ms%DAY/36e5),m=Math.floor(ms%36e5/6e4),s=Math.floor(ms%6e4/1e3);
+    $('count').innerHTML=[[d,L().d],[h,L().h],[m,L().m],[s,L().s]].map(x=>`<div><b>${String(x[0]).padStart(2,'0')}</b><span>${x[1]}</span></div>`).join('');
+    $('when').innerHTML=`${L().starts} · <em>${L().left(Math.ceil(ms/DAY))}</em>`;}
+  else{$('count').innerHTML='';$('when').innerHTML=i<N?`<em>${L().running}</em> · ${L().day.toUpperCase()} ${i+1}/${N}`:`<em>${L().ended}</em>`}
+}
+
+/* ---------- Recordatorio .ics ---------- */
+$('calBtn').onclick=e=>{e.preventDefault();
+  const ics=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Vibras Positivas HM//Adviento//ES","BEGIN:VTIMEZONE","TZID:America/Bogota","BEGIN:STANDARD","DTSTART:19700101T000000","TZOFFSETFROM:-0500","TZOFFSETTO:-0500","TZNAME:COT","END:STANDARD","END:VTIMEZONE",
+  "BEGIN:VEVENT","UID:adviento-familia-2026@vibraspositivashm","DTSTAMP:20261124T120000Z","DTSTART;TZID=America/Bogota:20261129T190000","DTEND;TZID=America/Bogota:20261129T193000","RRULE:FREQ=DAILY;COUNT=27",
+  "SUMMARY:"+L().calFile,"DESCRIPTION:"+location.href.split('#')[0],"BEGIN:VALARM","TRIGGER:PT0M","ACTION:DISPLAY","DESCRIPTION:"+L().calFile,"END:VALARM","END:VEVENT","END:VCALENDAR"].join("\r\n");
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([ics],{type:'text/calendar'}));a.download='reto-adviento.ics';a.click();};
+
+$('famAdd').onclick=()=>{const v=$('famIn').value.trim();if(!v)return;fam.push(v);store.set('fam',fam);$('famIn').value='';renderFam();toast(L().toastFam)};
+$('famIn').onkeydown=e=>{if(e.key==='Enter')$('famAdd').click()};
+$('ctaBtn').onclick=()=>{const i=dayIndexNow();openDay(Math.max(0,Math.min(i,N-1)))};
+$('novBtn').onclick=()=>openDay(NOV_START);
+$('langBtn').onclick=()=>{lang=lang==='es'?'en':'es';store.set('lang',lang);renderAll(true);if(openIdx!=null)openDay(openIdx)};
+
+function renderAll(full=true){if(full){renderStatic();renderWeeks();renderFam()}renderToday();renderDays();tick()}
+
+/* ---------- Hero: fotos que cambian + destellos ---------- */
+const sl=$('slides');{const d=document.createElement('div');d.style.backgroundImage='url("pesebre-familia.jpg")';d.style.backgroundPosition='38% 70%';d.className='on';sl.appendChild(d)}
+[0,2,1,7].forEach(k=>{const d=document.createElement('div');bg(d,k,1400);sl.appendChild(d)});
+let si=0;setInterval(()=>{const s=sl.children;s[si].classList.remove('on');si=(si+1)%s.length;s[si].classList.add('on')},5500);
+for(let i=0;i<18;i++){const s=document.createElement('span');s.className='spark';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*70+'%';s.style.animationDelay=Math.random()*3+'s';$('inicio').appendChild(s)}
+$('novImg').style.backgroundImage='url("pesebre-familia.jpg")';
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(e=>io.observe(e));
+
+renderAll(true);setInterval(tick,1000);
+setInterval(()=>{renderToday();renderWeeks()},60000);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)renderAll(false)});
+const m=location.hash.match(/dia-(\d+)/);if(m){const i=+m[1]-1;if(i>=0&&i<N)setTimeout(()=>openDay(i),300)}
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
+</script>
+</body>
+</html>
