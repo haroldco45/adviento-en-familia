@@ -162,6 +162,36 @@ h2{font-family:Fraunces,serif;font-size:28px;line-height:1.1;margin-bottom:6px;c
 .vill .tx{padding:14px 16px 18px;line-height:1.75}
 .vill .tx p{margin-bottom:10px}
 .fuente{font-size:12px;color:var(--muted);margin-top:8px}
+
+/* recetas */
+.recs{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 18px 16px;margin:0 -18px}
+.recs::-webkit-scrollbar{display:none}
+.rec{flex:none;width:210px;height:250px;border-radius:22px;overflow:hidden;position:relative;scroll-snap-align:start;color:#fff;text-align:left;background-size:cover;background-position:center;box-shadow:0 10px 24px #12203a26;transition:transform .25s}
+.rec:active{transform:scale(.96)}
+.rec::after{content:"";position:absolute;inset:0;background:linear-gradient(#0000 30%,#000c)}
+.rec .w{position:absolute;z-index:2;left:14px;right:14px;bottom:14px}
+.rec b{font-family:Fraunces,serif;font-size:23px;line-height:1.05;display:block}
+.rec small{display:block;opacity:.9;margin-top:4px;font-size:13px;line-height:1.35}
+.rec .vd{position:absolute;z-index:2;top:12px;left:12px;background:#e4572e;border-radius:999px;padding:4px 10px;font-weight:800;font-size:11px;letter-spacing:.8px}
+.fab{position:fixed;z-index:60;left:14px;bottom:calc(16px + env(safe-area-inset-bottom));background:var(--ember);color:#fff;font-weight:800;padding:13px 18px;border-radius:999px;box-shadow:0 8px 22px #e4572e66;animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-4px)}}
+.fab.hide{display:none}
+.vid{position:relative;aspect-ratio:16/9;background:#000;border-radius:0}
+.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.rh{padding:18px 20px 6px}
+.rh small{font-weight:800;letter-spacing:1.4px;color:var(--ember);text-transform:uppercase;font-size:12px}
+.rh h3{font-family:Fraunces,serif;font-size:34px;line-height:1.05;color:var(--night)}
+.rh p{color:var(--muted);margin-top:6px}
+.ing{list-style:none}
+.ing li{padding:10px 0 10px 34px;border-bottom:1px dashed #eadfcf;position:relative;cursor:pointer;line-height:1.45}
+.ing li::before{content:"";position:absolute;left:0;top:11px;width:20px;height:20px;border-radius:6px;border:2px solid var(--gold)}
+.ing li.ok{color:var(--muted);text-decoration:line-through}
+.ing li.ok::before{background:var(--gold)}
+.pas{counter-reset:p;list-style:none}
+.pas li{counter-increment:p;position:relative;padding:0 0 14px 44px;line-height:1.6}
+.pas li::before{content:counter(p);position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;background:var(--night);color:var(--gold);display:grid;place-items:center;font-weight:800}
+.yt{display:block;text-align:center;text-decoration:none;font-weight:800;padding:15px;border-radius:14px;background:#c4302b;color:#fff;margin-top:10px}
+.yt.wa{background:#1f9d55}
 footer{background:var(--night);color:#cdd5e3;padding:28px 18px 40px;font-size:13px;text-align:center}
 footer b{color:var(--gold)}
 footer a{color:#fff}
@@ -244,6 +274,12 @@ footer a{color:#fff}
     <p class="fuente" data-t="novFuente"></p>
   </section>
 
+
+  <section class="reveal" id="recetas">
+    <h2 data-t="recT"></h2>
+    <p class="lead" data-t="recL"></p>
+    <div class="recs" id="recs"></div>
+  </section>
   <section class="reveal" id="villancicos">
     <h2 data-t="villT"></h2>
     <p class="lead" data-t="villL"></p>
@@ -271,8 +307,10 @@ footer a{color:#fff}
 <div class="sheet" id="sheet"></div>
 <div class="markbar" id="markbar"><button id="markBtn"></button></div>
 <div class="toast" id="toast"></div>
+<button class="fab" id="fab" data-t="recBtn"></button>
 
 <script src="novena.js"></script>
+<script src="recetas.js"></script>
 <script>
 /* ---------- Fotos reales (Wikimedia Commons) con respaldo ---------- */
 const C=(f,w=1000)=>`https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(f)}?width=${w}`;
@@ -345,7 +383,7 @@ es:{kicker:"RETO DE",script:"Adviento",sub:"Luz en Casa",sub2:"27 días de oraci
 todayLbl:"Hoy",before:n=>`Faltan ${n} ${n===1?'día':'días'} para el primer domingo de Adviento. Ve leyendo el día 1 y prepara la corona.`,during:(i,w)=>`Día ${i+1} de ${N}: <b>${w}</b>.`,after:"El reto terminó. Que la luz siga encendida en casa.",readToday:"Leer el día de hoy",readFirst:"Ver el día 1",done:n=>`${n} de ${N} días cumplidos`,streak:n=>`Racha: ${n} ${n===1?'día':'días'} seguidos`,
 calT:"Tu calendario de Adviento",calL:"Un tema por día: lectura, reflexión, oración y un reto sencillo para hacer en familia.",day:"Día",
 wreathT:"La corona de Adviento",wreathL:"Cada domingo se enciende una vela más. La que corresponde a esta semana brilla aquí.",weeks:[["Semana 1","Esperanza"],["Semana 2","Paz"],["Semana 3","Alegría"],["Semana 4","Amor"]],
-novT:"Novena de Aguinaldos · 16 al 24 de diciembre",novL:"La tradición colombiana para rezar en familia y con los vecinos los nueve días antes de Navidad. Este es el orden de cada noche:",novItems:["Señal de la cruz y Acto de contrición","Oración para todos los días","Consideración del día","Oración a la Santísima Virgen","Oración a San José","Gozos","Oración al Niño Jesús","Villancicos y a compartir"],gozo:"Ven, ven, ven, ven a nuestras almas, Jesús, ven, ven, ven.",novBtn:"Ir al primer día de la Novena",novFull:"La Novena completa",letra:"Tamaño de letra",novFuente:"Texto tradicional de Fray Fernando de Jesús Larrea y la Madre María Ignacia. Las consideraciones van en lenguaje actual.",villT:"Villancicos",villL:"Las letras para cantar después de la Novena. Toque cada uno para abrirlo.",coroL:"Coro",rezarHoy:"Rezar la Novena completa de hoy",
+novT:"Novena de Aguinaldos · 16 al 24 de diciembre",novL:"La tradición colombiana para rezar en familia y con los vecinos los nueve días antes de Navidad. Este es el orden de cada noche:",novItems:["Señal de la cruz y Acto de contrición","Oración para todos los días","Consideración del día","Oración a la Santísima Virgen","Oración a San José","Gozos","Oración al Niño Jesús","Villancicos y a compartir"],gozo:"Ven, ven, ven, ven a nuestras almas, Jesús, ven, ven, ven.",novBtn:"Ir al primer día de la Novena",novFull:"La Novena completa",letra:"Tamaño de letra",novFuente:"Texto tradicional de Fray Fernando de Jesús Larrea y la Madre María Ignacia. Las consideraciones van en lenguaje actual.",villT:"Villancicos",villL:"Las letras para cantar después de la Novena. Toque cada uno para abrirlo.",coroL:"Coro",rezarHoy:"Rezar la Novena completa de hoy",recT:"Recetas de diciembre",recL:"Lo que no puede faltar en la Novena y en Navidad, con su paso a paso y video. Toque una receta para abrirla.",recBtn:"Recetas",ingL:"Ingredientes",ingTip:"Toque cada ingrediente para irlo tachando",pasL:"Preparación",tipL:"El truco",ytL:"Ver más videos de esta receta en YouTube",waR:"Mandar la receta por WhatsApp",conVideo:"CON VIDEO",verVideo:"VIDEOS",
 famT:"Hazlo en familia",famL:"Anota quiénes hacen el reto contigo. Todo queda guardado en tu celular.",add:"Agregar",ph:"Nombre (ej. Isaac)",wa:"Invitar a la familia por WhatsApp",cal:"Recordatorio diario a las 7:00 p. m.",
 waMsg:"Te invito al Reto de Adviento en Familia: 27 días de oración, del 29 de noviembre a Navidad, con la Novena de Aguinaldos. Es gratis:",
 foot:"Una app de <b>Vibras Positivas HM</b> · Caucasia, Antioquia",credits:"Fotos: Wikimedia Commons (CC BY-SA, sus autores). Textos bíblicos: Reina-Valera 1909 y King James (dominio público). Hora de Colombia (UTC-5).",
@@ -354,7 +392,7 @@ en:{kicker:"THE",script:"Advent",sub:"Light at Home",sub2:"27 days of family pra
 todayLbl:"Today",before:n=>`${n} ${n===1?'day':'days'} until the first Sunday of Advent. Read day 1 ahead and get your wreath ready.`,during:(i,w)=>`Day ${i+1} of ${N}: <b>${w}</b>.`,after:"The challenge is over. Keep the light burning at home.",readToday:"Read today's day",readFirst:"Preview day 1",done:n=>`${n} of ${N} days completed`,streak:n=>`Streak: ${n} ${n===1?'day':'days'} in a row`,
 calT:"Your Advent calendar",calL:"One theme per day: a reading, a reflection, a prayer and a simple family challenge.",day:"Day",
 wreathT:"The Advent wreath",wreathL:"Each Sunday one more candle is lit. This week's candle glows here.",weeks:[["Week 1","Hope"],["Week 2","Peace"],["Week 3","Joy"],["Week 4","Love"]],
-novT:"Christmas Novena · December 16–24",novL:"The Colombian tradition of praying with family and neighbors for the nine nights before Christmas. Each night follows this order:",novItems:["Sign of the cross and Act of contrition","Prayer for every day","Reflection of the day","Prayer to the Virgin Mary","Prayer to Saint Joseph","Carols (gozos)","Prayer to the Child Jesus","Christmas songs and sharing"],gozo:"Come, come, come into our souls, Jesus, come, come, come.",novBtn:"Go to the first Novena day",novFull:"The full Novena",letra:"Text size",novFuente:"Traditional text by Fray Fernando de Jesús Larrea and Mother María Ignacia. Daily reflections in modern language.",villT:"Christmas carols",villL:"Lyrics to sing after the Novena (sung in Spanish). Tap each one to open it.",coroL:"Chorus",rezarHoy:"Pray today's full Novena",
+novT:"Christmas Novena · December 16–24",novL:"The Colombian tradition of praying with family and neighbors for the nine nights before Christmas. Each night follows this order:",novItems:["Sign of the cross and Act of contrition","Prayer for every day","Reflection of the day","Prayer to the Virgin Mary","Prayer to Saint Joseph","Carols (gozos)","Prayer to the Child Jesus","Christmas songs and sharing"],gozo:"Come, come, come into our souls, Jesus, come, come, come.",novBtn:"Go to the first Novena day",novFull:"The full Novena",letra:"Text size",novFuente:"Traditional text by Fray Fernando de Jesús Larrea and Mother María Ignacia. Daily reflections in modern language.",villT:"Christmas carols",villL:"Lyrics to sing after the Novena (sung in Spanish). Tap each one to open it.",coroL:"Chorus",rezarHoy:"Pray today's full Novena",recT:"December recipes",recL:"The Colombian Christmas classics, step by step with video. Tap a recipe to open it.",recBtn:"Recipes",ingL:"Ingredients",ingTip:"Tap each ingredient to check it off",pasL:"Method",tipL:"The trick",ytL:"More videos of this recipe on YouTube",waR:"Send the recipe on WhatsApp",conVideo:"VIDEO",verVideo:"VIDEOS",
 famT:"Do it as a family",famL:"Add who is doing the challenge with you. Everything is saved on your phone.",add:"Add",ph:"Name (e.g. Isaac)",wa:"Invite family on WhatsApp",cal:"Daily reminder at 7:00 p.m.",
 waMsg:"Join me in the Advent Family Challenge: 27 days of prayer from November 29 to Christmas, including the Christmas Novena. It's free:",
 foot:"An app by <b>Vibras Positivas HM</b> · Caucasia, Colombia",credits:"Photos: Wikimedia Commons (CC BY-SA, their authors). Bible texts: Reina-Valera 1909 and King James (public domain). Colombia time (UTC-5).",
@@ -418,7 +456,7 @@ function openDay(i){
   ${fam.length?`<div class="blk"><h4>${L().famT}</h4><p>${fam.join(', ')}</p></div>`:''}</div>`;
   if(i===7||i===25){$('shHero').style.backgroundImage='url("pesebre-familia.jpg")'}else bg($('shHero'),i,1100);
   $('sheet').classList.add('open');$('sheet').scrollTop=0;document.body.style.overflow='hidden';
-  updateMark();$('markbar').classList.add('show');if(!wasOpen)history.pushState({d:i},'','#dia-'+(i+1));else history.replaceState({d:i},'','#dia-'+(i+1));
+  updateMark();$('markbar').classList.add('show');$('fab').classList.add('hide');if(!wasOpen)history.pushState({d:i},'','#dia-'+(i+1));else history.replaceState({d:i},'','#dia-'+(i+1));
 }
 function updateMark(){
   const b=$('markBtn'),i=openIdx;const can=dayIndexNow()>=i;
@@ -426,8 +464,8 @@ function updateMark(){
   else if(!can){b.textContent=L().locked(shortDate(i,lang));b.className='';b.disabled=true}
   else{b.textContent=L().mark;b.className='';b.disabled=false}
 }
-function closeDay(fromPop){$('sheet').classList.remove('open');$('markbar').classList.remove('show');document.body.style.overflow='';openIdx=null;if(!fromPop&&location.hash)history.back()}
-$('markBtn').onclick=()=>{const i=openIdx;if(i==null)return;if(done.includes(i))done=done.filter(x=>x!==i);else{done.push(i);toast(L().toastDone)}store.set('done',done);updateMark();renderAll(false)};
+function closeDay(fromPop){$('fab').classList.remove('hide');$('sheet').classList.remove('open');$('markbar').classList.remove('show');document.body.style.overflow='';openIdx=null;if(!fromPop&&location.hash)history.back()}
+$('markBtn').onclick=()=>{const i=openIdx;if(i==null||typeof i==='string')return;if(done.includes(i))done=done.filter(x=>x!==i);else{done.push(i);toast(L().toastDone)}store.set('done',done);updateMark();renderAll(false)};
 window.addEventListener('popstate',()=>{if(openIdx!=null)closeDay(true)});
 
 /* ---------- Cuenta regresiva ---------- */
@@ -449,7 +487,7 @@ $('calBtn').onclick=e=>{e.preventDefault();
 $('famAdd').onclick=()=>{const v=$('famIn').value.trim();if(!v)return;fam.push(v);store.set('fam',fam);$('famIn').value='';renderFam();toast(L().toastFam)};
 $('famIn').onkeydown=e=>{if(e.key==='Enter')$('famAdd').click()};
 $('ctaBtn').onclick=()=>{const i=dayIndexNow();openDay(Math.max(0,Math.min(i,N-1)))};
-$('langBtn').onclick=()=>{lang=lang==='es'?'en':'es';store.set('lang',lang);renderAll(true);if(openIdx!=null)openDay(openIdx)};
+$('langBtn').onclick=()=>{lang=lang==='es'?'en':'es';store.set('lang',lang);renderAll(true);if(typeof openIdx==='string')openReceta(+openIdx.slice(1));else if(openIdx!=null)openDay(openIdx)};
 
 
 /* ---------- Novena completa y villancicos ---------- */
@@ -486,7 +524,33 @@ function irNovena(i){closeDay();novDia=i;renderNovena();setTimeout(()=>$('novena
 $('fsPlus').onclick=()=>{fs=Math.min(1.6,+(fs+.1).toFixed(1));store.set('fs',fs);renderNovena()};
 $('fsMinus').onclick=()=>{fs=Math.max(.9,+(fs-.1).toFixed(1));store.set('fs',fs);renderNovena()};
 
-function renderAll(full=true){if(full){renderStatic();renderWeeks();renderFam();renderNovena()}renderToday();renderDays();tick()}
+/* ---------- Recetas de diciembre ---------- */
+const REC_BG=["linear-gradient(135deg,#7a3b12,#d98b3a)","linear-gradient(135deg,#8a5a12,#e0a93b)","linear-gradient(135deg,#9a3a1c,#e4572e)","linear-gradient(135deg,#5c3a21,#c99a63)","linear-gradient(135deg,#1f5132,#6fa35a)","linear-gradient(135deg,#a8461e,#f2a541)","linear-gradient(135deg,#4b3a6b,#b98fc7)"];
+function recImg(r,i){return r.video?`url("https://i.ytimg.com/vi/${r.video}/hqdefault.jpg"), ${REC_BG[i%REC_BG.length]}`:REC_BG[i%REC_BG.length]}
+function renderRecetas(){
+  $('recs').innerHTML=RECETAS.map((r,i)=>{const x=r[lang];return `<button class="rec" style='background-image:${recImg(r,i)}' onclick="openReceta(${i})"><span class="vd">${r.video?L().conVideo:L().verVideo}</span><span class="w"><b>${x.t}</b><small>${x.d}</small></span></button>`}).join('');
+}
+function openReceta(i){
+  const r=RECETAS[i],x=r[lang],yt='https://www.youtube.com/results?search_query='+encodeURIComponent(r.buscar);
+  const wasOpen=openIdx!=null;openIdx='r'+i;
+  const txt=`*${x.t}*\n\n${L().ingL}:\n${x.ing.map(a=>'- '+a).join('\n')}\n\n${L().pasL}:\n${x.pasos.map((a,k)=>(k+1)+'. '+a).join('\n')}\n\n${location.href.split('#')[0]}#recetas`;
+  $('sheet').innerHTML=`${r.video?`<div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/${r.video}?rel=0&playsinline=1" title="${esc(x.t)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`:`<div class="sh-hero" style="height:30svh;min-height:200px;background:${REC_BG[i%REC_BG.length]}"><div class="t"><small>${L().recT}</small><h3>${x.t}</h3></div></div>`}
+  <button class="close" style="position:fixed;z-index:103" onclick="closeDay()">${L().close}</button>
+  <div class="rh"><small>${x.rinde}</small>${r.video?`<h3>${x.t}</h3>`:''}<p>${x.d}</p></div>
+  <div class="sh-body rezo" style="padding-top:12px">
+    <a class="yt" href="${yt}" target="_blank" rel="noopener">${L().ytL}</a>
+    <div class="blk" style="margin-top:14px"><h4>${L().ingL}</h4><p class="lead" style="margin:0 0 4px;font-size:13px">${L().ingTip}</p><ul class="ing">${x.ing.map(a=>`<li onclick="this.classList.toggle('ok')">${esc(a)}</li>`).join('')}</ul></div>
+    <div class="blk"><h4>${L().pasL}</h4><ol class="pas">${x.pasos.map(a=>`<li>${esc(a)}</li>`).join('')}</ol></div>
+    <div class="blk ch"><h4>${L().tipL}</h4><p>${esc(x.tip)}</p></div>
+    <a class="yt wa" href="https://wa.me/?text=${encodeURIComponent(txt)}" target="_blank" rel="noopener">${L().waR}</a>
+  </div>`;
+  document.querySelectorAll('.rezo').forEach(e=>e.style.setProperty('--fs',fs));
+  $('sheet').classList.add('open');$('sheet').scrollTop=0;document.body.style.overflow='hidden';$('markbar').classList.remove('show');$('fab').classList.add('hide');
+  if(!wasOpen)history.pushState({r:i},'','#receta-'+r.id);else history.replaceState({r:i},'','#receta-'+r.id);
+}
+$('fab').onclick=()=>$('recetas').scrollIntoView({behavior:'smooth'});
+
+function renderAll(full=true){if(full){renderStatic();renderWeeks();renderFam();renderNovena();renderRecetas()}renderToday();renderDays();tick()}
 
 /* ---------- Hero: fotos que cambian + destellos ---------- */
 const sl=$('slides');{const d=document.createElement('div');d.style.backgroundImage='url("pesebre-familia.jpg")';d.style.backgroundPosition='38% 70%';d.className='on';sl.appendChild(d)}
@@ -502,6 +566,7 @@ document.querySelectorAll('.reveal').forEach(e=>io.observe(e));
 renderAll(true);setInterval(tick,1000);
 setInterval(()=>{renderToday();renderWeeks()},60000);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)renderAll(false)});
+const mr=location.hash.match(/receta-(\w+)/);if(mr){const k=RECETAS.findIndex(r=>r.id===mr[1]);if(k>=0)setTimeout(()=>openReceta(k),300)}
 const m=location.hash.match(/dia-(\d+)/);if(m){const i=+m[1]-1;if(i>=0&&i<N)setTimeout(()=>openDay(i),300)}
 if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
