@@ -1,5 +1,5 @@
-const CACHE='adviento-v2';
-const CORE=['./','index.html','manifest.json','icon-192.png','icon-512.png','pesebre-familia.jpg'];
+const CACHE='adviento-v3';
+const CORE=['./','index.html','manifest.json','icon-192.png','icon-512.png','pesebre-familia.jpg','novena.js'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE)));self.skipWaiting()});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==CACHE).map(x=>caches.delete(x)))));self.clients.claim()});
 self.addEventListener('fetch',e=>{
